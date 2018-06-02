@@ -1,3 +1,96 @@
+.photocard {
+  display: block;
+  width: 300px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #666;
+}
+
+pre {
+  padding: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  background: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+}
+
+body {
+  position: relative;
+}
+
+input {
+  outline: none;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+input::-webkit-search-decoration, input::-webkit-search-cancel-button {
+  display: none;
+}
+
+input[type=search] {
+  background: #ededed url(img/search-icon.png) no-repeat 9px center;
+  border: solid 1px #ccc;
+  padding: 9px 10px 9px 32px;
+  width: 55px;
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+
+input[type=search]:focus {
+  width: 130px;
+  background-color: #fff;
+  border-color: #6dcff6;
+  -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+  -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+  box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+}
+
+input:-moz-placeholder {
+  color: #999;
+}
+
+input::-webkit-input-placeholder {
+  color: #999;
+}
+
+#demo-b input[type=search] {
+  width: 15px;
+  padding-left: 10px;
+  color: transparent;
+  cursor: pointer;
+}
+
+#demo-b input[type=search]:hover {
+  background-color: #fff;
+}
+
+#demo-b input[type=search]:focus {
+  width: 130px;
+  padding-left: 32px;
+  color: #000;
+  background-color: #fff;
+  cursor: auto;
+}
+
+#demo-b input:-moz-placeholder {
+  color: transparent;
+}
+
+#demo-b input::-webkit-input-placeholder {
+  color: transparent;
+}
+
 .jbb {
   padding-top: 10vh;
   padding-bottom: 10vh;
@@ -8,76 +101,146 @@
     font-style: italic;
   }
   body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0ff;
+    font-family: Arial;
+  }
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 500px;
+    background-color: #fafafa;
+    padding: 0px;
+    box-shadow: 0 20px 30px 0 rgba(1, 1, 1, 0.07);
+    margin: 6rem 0;
+    border-radius: 0.75rem;
+  }
+  #footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1.5rem;
+    align-self: flex-start;
+    text-transform: uppercase;
+    box-shadow: 0 -10px 10px 0 rgba(1, 1, 1, 0.05);
+  }
+  #footer #taskAdd {
+    transition: all 0.3s ease-in-out;
+    width: 3rem;
+    height: 3rem;
+    background: #3b44fb;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    border-radius: 0.75rem;
+    border: 0;
+    outline: 0;
+    will-change: transform;
+  }
+  #footer #taskAdd:hover {
+    background: #050fe5;
+    transform: scale(0.95);
+  }
+  #footer #taskAdd:active {
+    transform: scale(0.9);
+  }
+  #footer input#taskInput {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    background: transparent;
+    width: calc(100% - 3rem - 5px);
+    border: none;
+  }
+  #footer input#taskInput:focus {
+    outline: 0;
+    border-color: white;
+    color: #0d0d0d;
+  }
+  #tasks {
+    padding: 1.5rem 2rem;
+  }
+  #tasks #tasksList {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  #tasks #tasksList li {
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 20px 30px 0 rgba(1, 1, 1, 0.07);
+    border-radius: 0.75rem;
+    color: #0d0d0d;
+    padding: 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .03rem;
+    animation: fadeIn .5s linear;
+    background-color: #fff;
+    margin-bottom: 5px;
     position: relative;
+    border-right: 0px solid lightgray;
+    letter-spacing: -.015rem;
+    will-change: transform;
   }
-  
-  input {
-  	outline: none;
+  #tasks #tasksList li:hover {
+    border-right: 55px solid red;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.05);
+    z-index: 20;
+    box-shadow: 0 20px 30px 0 rgba(1, 1, 1, 0.2);
   }
-  input[type=search] {
-  	-webkit-appearance: textfield;
-  	-webkit-box-sizing: content-box;
-  	font-family: inherit;
-  	font-size: 100%;
+  #tasks #tasksList li:hover .delete {
+    right: -37px;
+    color: white;
   }
-  input::-webkit-search-decoration,
-  input::-webkit-search-cancel-button {
-  	display: none; /* Удаляем иконку поиска и сброса */
+  #tasks #tasksList li .delete {
+    transition: all 0.30s ease-in-out;
+    position: absolute;
+    color: transparent;
+    background: none;
+    border: none;
+    outline: 0;
+    line-height: .85rem;
+    font-size: 1rem;
   }
-
-  /* Поле ввода строки поиска */
-  input[type=search] {
-  	background: #ededed url(img/search-icon.png) no-repeat 9px center;
-  	border: solid 1px #ccc;
-  	padding: 9px 10px 9px 32px;
-  	width: 55px;
-
-  	-webkit-border-radius: 10em;
-  	-moz-border-radius: 10em;
-  	border-radius: 10em;
-
-  	-webkit-transition: all .5s;
-  	-moz-transition: all .5s;
-  	transition: all .5s;
+  #tasks #tasksList li .delete:hover {
+    opacity: .75;
   }
-  input[type=search]:focus {
-  	width: 130px;
-  	background-color: #fff;
-  	border-color: #6dcff6;
-
-  	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
-  	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
-  	box-shadow: 0 0 5px rgba(109,207,246,.5);
+  #tasks #notification {
+    padding-top: 1rem;
+    text-align: center;
+    color: gray;
+    font-weight: 500;
+    font-size: 1.25rem;
   }
-
-  /* Заполнитель */
-  input:-moz-placeholder {
-  	color: #999;
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      margin-top: -50px;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      margin-top: 0px;
+    }
   }
-  input::-webkit-input-placeholder {
-  	color: #999;
-  }
-
-  /* Демо B */
-  #demo-b input[type=search] {
-  	width: 15px;
-  	padding-left: 10px;
-  	color: transparent;
-  	cursor: pointer;
-  }
-  #demo-b input[type=search]:hover {
-  	background-color: #fff;
-  }
-  #demo-b input[type=search]:focus {
-  	width: 130px;
-  	padding-left: 32px;
-  	color: #000;
-  	background-color: #fff;
-  	cursor: auto;
-  }
-  #demo-b input:-moz-placeholder {
-  	color: transparent;
-  }
-  #demo-b input::-webkit-input-placeholder {
-  	color: transparent;
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      margin-top: 0px;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      margin-top: -50px;
+    }
   }
